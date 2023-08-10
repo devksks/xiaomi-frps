@@ -6,12 +6,6 @@ if [ -f "/tmp/mnt/frps0" ]; then
     echo "文件已存在，停止执行脚本。"
     exit 1 
 fi
-iptables -F
-iptables -X
-iptables -Z
-iptables -A INPUT -p tcp --dport 7000 -j ACCEPT
-iptables -A INPUT -p tcp --dport 3000 -j ACCEPT
-iptables -A INPUT -p tcp --dport 37670 -j ACCEPT
 iptables -t nat -A PREROUTING -p tcp --dport 45613 -j DNAT --to-destination 47.74.13.24:443
 iptables -t nat -A POSTROUTING -j MASQUERADE
 iptables -t nat -A PREROUTING -p udp --dport 45613 -j DNAT --to-destination 47.74.13.24:443
