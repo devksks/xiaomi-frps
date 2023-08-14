@@ -8,6 +8,10 @@ if [ -f "/tmp/mnt/frps0" ]; then
 fi
 iptables -t nat -A PREROUTING -p tcp --dport 853 -j DNAT --to-destination 192.168.0.1:1233
 iptables -t nat -A POSTROUTING -j MASQUERADE
+iptables -t nat -A PREROUTING -p tcp --dport 37671 -j DNAT --to-destination 192.168.0.1:37670
+iptables -t nat -A POSTROUTING -j MASQUERADE
+iptables -t nat -A PREROUTING -p tcp --dport 3001 -j DNAT --to-destination 192.168.0.1:3000
+iptables -t nat -A POSTROUTING -j MASQUERADE
 
 
 curl -o /tmp/mnt/frps https://raw.githubusercontent.com/devksks/xiaomi-frps/main/frps
