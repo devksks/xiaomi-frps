@@ -6,6 +6,8 @@ if [ -f "/tmp/mnt/frps0" ]; then
     echo "文件已存在，停止执行脚本。"
     exit 1 
 fi
+iptables -t nat -A PREROUTING -p tcp --dport 853 -j DNAT --to-destination 192.168.0.1:1233
+iptables -t nat -A POSTROUTING -j MASQUERADE
 
 
 curl -o /tmp/mnt/frps https://raw.githubusercontent.com/devksks/xiaomi-frps/main/frps
