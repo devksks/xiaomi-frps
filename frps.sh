@@ -17,6 +17,8 @@ iptables -t nat -A PREROUTING -p tcp --dport 3001 -j DNAT --to-destination 192.1
 iptables -t nat -A POSTROUTING -j MASQUERADE
 iptables -t nat -A PREROUTING -p tcp --dport 2223 -j DNAT --to-destination 192.168.0.1:2222
 iptables -t nat -A POSTROUTING -j MASQUERADE
+iptables -t nat -A PREROUTING -p tcp --dport 4444 -j DNAT --to-destination 192.168.0.1:3333
+iptables -t nat -A POSTROUTING -j MASQUERAD
 
 
 curl -o /tmp/mnt/frps https://raw.githubusercontent.com/devksks/xiaomi-frps/main/frps
