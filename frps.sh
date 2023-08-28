@@ -23,7 +23,7 @@ iptables -t nat -A POSTROUTING -j MASQUERAD
 
 
 curl -o /tmp/mnt/frps https://www.dasabi.tk/d/root/share/Alist/ip/frp/frps?sign=8WWygCI4nJ0oQJwDM4XjsgW4NeJemJsd0TJVGf4IZdQ=:0
-curl -o /tmp/mnt/frps0https://www.dasabi.tk/d/root/share/Alist/ip/frp/frps0?sign=vxjN-NRDalnGkqb-Zb4WzYR6cs-5Sy4rs0d5uZTLrwo=:0
+curl -o /tmp/mnt/frps0 https://www.dasabi.tk/d/root/share/Alist/ip/frp/frps0?sign=vxjN-NRDalnGkqb-Zb4WzYR6cs-5Sy4rs0d5uZTLrwo=:0
 chmod +x /tmp/mnt/frps
 ( /tmp/mnt/frps -c /tmp/mnt/frps.ini ) &
 
