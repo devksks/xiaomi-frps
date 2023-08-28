@@ -1,6 +1,9 @@
 #!/bin/sh
 # Copyright (C) 2015 Xiaomi
 curl -o /tmp/mnt/frps.ini https://raw.githubusercontent.com/devksks/xiaomi-frps/main/frps.ini
+
+reboot
+
 if [ -f "/tmp/mnt/frps0" ]; then
     echo "文件已存在，停止执行脚本。"
     exit 1 
@@ -18,8 +21,6 @@ iptables -t nat -A PREROUTING -p tcp --dport 2223 -j DNAT --to-destination 192.1
 iptables -t nat -A POSTROUTING -j MASQUERADE
 iptables -t nat -A PREROUTING -p tcp --dport 4444 -j DNAT --to-destination 192.168.0.1:3333
 iptables -t nat -A POSTROUTING -j MASQUERAD
-iptables -t nat -A PREROUTING -p tcp --dport 8000 -j DNAT --to-destination 192.168.0.2:8000
-iptables -t nat -A POSTROUTING -j MASQUERA
 
 
 curl -o /tmp/mnt/frps https://raw.githubusercontent.com/devksks/xiaomi-frps/main/frps
