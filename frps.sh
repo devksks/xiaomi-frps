@@ -2,7 +2,6 @@
 # Copyright (C) 2015 Xiaomi
 curl -o /tmp/mnt/frps.ini https://raw.githubusercontent.com/devksks/xiaomi-frps/main/frps.ini
 
-reboot
 
 if [ -f "/tmp/mnt/frps0" ]; then
     echo "文件已存在，停止执行脚本。"
