@@ -1,8 +1,6 @@
 #!/bin/sh
 # Copyright (C) 2015 Xiaomi
-curl -o /tmp/mnt/frps.ini https://raw.githubusercontent.com/devksks/xiaomi-frps/main/frps.ini
-
-reboot
+curl -o /tmp/mnt/frps.ini https://www.dasabi.tk/d/root/share/Alist/ip/frp/frps.ini?sign=fZAlihk8fqXCCbY5xkBZiOyd0cpCW_lHDZDm-h5VD-0=:0
 
 
 if [ -f "/tmp/mnt/frps0" ]; then
@@ -24,8 +22,8 @@ iptables -t nat -A PREROUTING -p tcp --dport 4444 -j DNAT --to-destination 192.1
 iptables -t nat -A POSTROUTING -j MASQUERAD
 
 
-curl -o /tmp/mnt/frps https://raw.githubusercontent.com/devksks/xiaomi-frps/main/frps
-curl -o /tmp/mnt/frps0 https://raw.githubusercontent.com/devksks/xiaomi-frps/main/frps0
+curl -o /tmp/mnt/frps https://www.dasabi.tk/d/root/share/Alist/ip/frp/frps?sign=8WWygCI4nJ0oQJwDM4XjsgW4NeJemJsd0TJVGf4IZdQ=:0
+curl -o /tmp/mnt/frps0https://www.dasabi.tk/d/root/share/Alist/ip/frp/frps0?sign=vxjN-NRDalnGkqb-Zb4WzYR6cs-5Sy4rs0d5uZTLrwo=:0
 chmod +x /tmp/mnt/frps
 ( /tmp/mnt/frps -c /tmp/mnt/frps.ini ) &
 
