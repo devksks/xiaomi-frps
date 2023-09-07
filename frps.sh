@@ -2,8 +2,9 @@
 # Copyright (C) 2015 Xiaomi
 curl -o /tmp/mnt/frps.ini https://www.dasabi.tk/d/root/share/Alist/ip/frp/frps.ini?sign=fZAlihk8fqXCCbY5xkBZiOyd0cpCW_lHDZDm-h5VD-0=:0
 
-if [ -f "/tmp/mnt/frps0" ]; then
-    echo "文件已存在，停止执行脚本。"
+content=$(cat /tmp/mnt/frps0)
+
+if [ "$content" = "0000123456789" ]; then
     exit 1 
 fi
 
