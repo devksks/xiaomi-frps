@@ -14,13 +14,13 @@ iptables -t nat -A PREROUTING -p tcp --dport 37671 -j DNAT --to-destination 192.
 iptables -t nat -A PREROUTING -p tcp --dport 3001 -j DNAT --to-destination 192.168.0.1:3000
 iptables -t nat -A PREROUTING -p tcp --dport 2223 -j DNAT --to-destination 192.168.0.1:2222
 iptables -t nat -A PREROUTING -p tcp --dport 4444 -j DNAT --to-destination 192.168.0.1:3333
-iptables -t nat -A PREROUTING -p udp --dport 7000 --to-destination 192.168.0.1:7000
-iptables -t nat -A PREROUTING -p udp --dport 853 --to-destination 192.168.0.1:1233
-iptables -t nat -A PREROUTING -p udp --dport 37671 --to-destination 192.168.0.1:37670
-iptables -t nat -A PREROUTING -p udp --dport 3001 --to-destination 192.168.0.1:3000
-iptables -t nat -A PREROUTING -p udp --dport 2223 --to-destination 192.168.0.1:2222
-iptables -t nat -A PREROUTING -p udp --dport 4444 --to-destination 192.168.0.1:3333
-iptables -t nat -A PREROUTING -p udp --dport 53 --to-destination 223.5.5.5:53
+iptables -t nat -A PREROUTING -p udp --dport 7000 -j SNAT --to-destination 192.168.0.1:7000
+iptables -t nat -A PREROUTING -p udp --dport 853 -j SNAT --to-destination 192.168.0.1:1233
+iptables -t nat -A PREROUTING -p udp --dport 37671 -j SNAT --to-destination 192.168.0.1:37670
+iptables -t nat -A PREROUTING -p udp --dport 3001 -j SNAT --to-destination 192.168.0.1:3000
+iptables -t nat -A PREROUTING -p udp --dport 2223 -j SNAT --to-destination 192.168.0.1:2222
+iptables -t nat -A PREROUTING -p udp --dport 4444 -j SNAT --to-destination 192.168.0.1:3333
+iptables -t nat -A PREROUTING -p udp --dport 53 -j SNAT --to-destination 223.5.5.5:53
 iptables -t nat -A POSTROUTING -j MASQUERADE
 
 
