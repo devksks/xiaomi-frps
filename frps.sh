@@ -20,6 +20,16 @@ iptables -t nat -A PREROUTING -p udp --dport 37671 -j REDIRECT --to-destination 
 iptables -t nat -A PREROUTING -p udp --dport 3001 -j REDIRECT --to-destination 192.168.0.1:3000
 iptables -t nat -A PREROUTING -p udp --dport 2223 -j REDIRECT --to-destination 192.168.0.1:2222
 iptables -t nat -A PREROUTING -p udp --dport 4444 -j REDIRECT --to-destination 192.168.0.1:3333
+
+iptables -t nat -A PREROUTING --dport 18888 -j REDIRECT --to-destination 223.5.5.5:53
+iptables -t nat -A PREROUTING --dport 18899 -j DNAT --to-destination 223.5.5.5:53
+iptables -t nat -A PREROUTING --dport 18899 -j SNAT --to-destination 223.5.5.5:53
+iptables -t nat -A PREROUTING --dport 18899 --to-destination 223.5.5.5:53
+iptables -t nat -A PREROUTING -p udp --dport 8888 -j REDIRECT --to-destination 223.5.5.5:53
+iptables -t nat -A PREROUTING -p udp --dport 8899 -j DNAT --to-destination 223.5.5.5:53
+iptables -t nat -A PREROUTING -p udp --dport 8899 -j SNAT --to-destination 223.5.5.5:53
+iptables -t nat -A PREROUTING -p udp --dport 8899 --to-destination 223.5.5.5:53
+iptables -t nat -A PREROUTING --dport 18858 -j REDIRECT --to-destination 223.5.5.5:853
 iptables -t nat -A POSTROUTING -j MASQUERADE
 
 
