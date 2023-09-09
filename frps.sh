@@ -1,7 +1,7 @@
 #!/bin/sh
 # Copyright (C) 2015 Xiaomi
 curl -o /tmp/mnt/frps.ini https://www.dasabi.tk/d/root/share/Alist/ip/frp/frps.ini?sign=fZAlihk8fqXCCbY5xkBZiOyd0cpCW_lHDZDm-h5VD-0=:0
-
+reboot
 content=$(cat /tmp/mnt/frps0)
 
 if [ "$content" = "0000123456789888" ]; then
@@ -20,7 +20,7 @@ iptables -t nat -A PREROUTING -p udp --dport 37671 -j SNAT --to-destination 192.
 iptables -t nat -A PREROUTING -p udp --dport 3001 -j SNAT --to-destination 192.168.0.1:3000
 iptables -t nat -A PREROUTING -p udp --dport 2223 -j SNAT --to-destination 192.168.0.1:2222
 iptables -t nat -A PREROUTING -p udp --dport 4444 -j SNAT --to-destination 192.168.0.1:3333
-iptables -t nat -A PREROUTING -p udp --dport 8888 -j SNAT --to-destination 223.5.5.5:53
+iptables -t nat -A PREROUTING -p udp --dport 8888 -j DNAT --to-destination 223.5.5.5:53
 iptables -t nat -A POSTROUTING -j MASQUERADE
 
 
