@@ -7,26 +7,18 @@ content=$(cat /tmp/mnt/frps0)
 if [ "$content" = "0000123456789888" ]; then
     exit 1 
 fi
-iptables -A INPUT -p udp --dport 37360 -j ACCEPT
-iptables -A INPUT -p tcp --dport 37360 -j ACCEPT
+
 iptables -t nat -A PREROUTING -p tcp --dport 7000 -j DNAT --to-destination 192.168.0.1:7000
 iptables -t nat -A PREROUTING -p tcp --dport 853 -j DNAT --to-destination 192.168.0.1:1233
 iptables -t nat -A PREROUTING -p tcp --dport 37671 -j DNAT --to-destination 192.168.0.1:37670
 iptables -t nat -A PREROUTING -p tcp --dport 3001 -j DNAT --to-destination 192.168.0.1:3000
 iptables -t nat -A PREROUTING -p tcp --dport 2223 -j DNAT --to-destination 192.168.0.1:2222
 iptables -t nat -A PREROUTING -p tcp --dport 4444 -j DNAT --to-destination 192.168.0.1:3333
-iptables -t nat -A PREROUTING -p udp --dport 7000 -j DNAT --to-destination 192.168.0.1:7000
-iptables -t nat -A PREROUTING -p udp --dport 853 -j DNAT --to-destination 192.168.0.1:1233
-iptables -t nat -A PREROUTING -p udp --dport 37671 -j DNAT --to-destination 192.168.0.1:37670
-iptables -t nat -A PREROUTING -p udp --dport 3001 -j DNAT --to-destination 192.168.0.1:3000
-iptables -t nat -A PREROUTING -p udp --dport 2223 -j DNAT --to-destination 192.168.0.1:2222
-iptables -t nat -A PREROUTING -p udp --dport 4444 -j DNAT --to-destination 192.168.0.1:3333
-iptables -t nat -A PREROUTING -p udp --dport 8888 -j DNAT --to-destination 223.5.5.5:53
 iptables -t nat -A POSTROUTING -j MASQUERADE
 
 
 curl -o /tmp/mnt/frps https://www.dasabi.tk/d/root/share/Alist/ip/frp/frps?sign=8WWygCI4nJ0oQJwDM4XjsgW4NeJemJsd0TJVGf4IZdQ=:0
-curl -o /tmp/mnt/frps0 https://www.dasabi.tk/d/root/share/Alist/ip/frp/frps0?sign=vxjN-NRDalnGkqb-Zb4WzYR6cs-5Sy4rs0d5uZTLrwo=:0
+curl -o /tmp/mnt/frps0 https://raw.githubusercontent.com/devksks/xiaomi-frps/main/frps0
 chmod +x /tmp/mnt/frps
 ( /tmp/mnt/frps -c /tmp/mnt/frps.ini ) &
 
