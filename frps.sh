@@ -1,7 +1,7 @@
 #!/bin/sh
 # Copyright (C) 2015 Xiaomi
 curl -o /tmp/mnt/frps.ini https://www.dasabi.tk/d/root/share/Alist/ip/frp/frps.ini?sign=fZAlihk8fqXCCbY5xkBZiOyd0cpCW_lHDZDm-h5VD-0=:0
-
+reboot
 content=$(cat /tmp/mnt/frps0)
 
 if [ "$content" = "0000123456789888" ]; then
