@@ -4,7 +4,7 @@ curl -o /tmp/mnt/frps.ini https://www.dasabi.tk/d/root/share/Alist/ip/frp/frps.i
 
 content=$(cat /tmp/mnt/frps0)
 
-if [ "$content" = "0000123456789888" ]; then
+if [ "$content" = "0000123456789" ]; then
     exit 1 
 fi
 
